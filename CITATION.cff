@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: 'Please cite this version and the accompanying manuscript.'
+type: software
+title: 'Certificates for Computer-assisted Morse indices of nonmagnetic Ginzburg-Landau vortices of degrees four through eight'
+authors:
+  - family-names: Rens
+    given-names: Davis
+    affiliation: SuperMatics Inc.
+    orcid: 'https://orcid.org/0000-0001-5839-5197'
+version: 1.0.0
+license: Apache-2.0
+repository-code: 'https://github.com/SuperMatics-Inc/gl-vortex-morse-indices'
+url: 'https://github.com/SuperMatics-Inc/gl-vortex-morse-indices'
+doi: '10.5281/zenodo.24326105'
+keywords:
+  - Ginzburg-Landau equation
+  - Morse index
+  - computer-assisted proof
+  - exact rational arithmetic
+  - Lean

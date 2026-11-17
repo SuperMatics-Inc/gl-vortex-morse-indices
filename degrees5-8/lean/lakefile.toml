@@ -1,0 +1,18 @@
+name = "GLDegrees"
+version = "1.0.0"
+defaultTargets = ["GLDegrees"]
+
+[leanOptions]
+autoImplicit = false
+maxHeartbeats = 0
+maxRecDepth = 200000
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.35.0"
+
+[[lean_lib]]
+name = "GLDegrees"
+moreLeanArgs = ["-M", "10000", "-j", "1"]

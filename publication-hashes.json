@@ -1,0 +1,22 @@
+{
+  "figures/morse-indices.pdf": {
+    "bytes": 16408,
+    "sha256": "fd853f0457452c00855c11dd3ff94a2acae59d6edb290474fe9115f83aca37e6"
+  },
+  "figures/plot_summary.py": {
+    "bytes": 2889,
+    "sha256": "3a8d67b6f796615f72d7a6bd474118737c409112494a379cd0322fcca6f1db22"
+  },
+  "figures/pub.mplstyle": {
+    "bytes": 1206,
+    "sha256": "a48f30ca901a15529d5f11b08ca2d575aec5b11b313a4dbf44b8e571772afa36"
+  },
+  "data/morse-indices.json": {
+    "bytes": 1547,
+    "sha256": "ff8cea195d947e6005882d97c721d991ccadb53922787e51afe1425b8408c30a"
+  },
+  "data/execution.json": {
+    "bytes": 2779,
+    "sha256": "c81c6f3a4041a624fa7023fbdc01d27589ccb855d4913632427a537f0658ab89"
+  }
+}

@@ -1,0 +1,33 @@
+name: Replay both certificate sets and degree-four Lean
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  certificates:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements.txt
+      - run: python -B scripts/replay.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: finite-replay-receipts
+          path: logs/merged-replay/
+  lean:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean
+      - name: Check theorem trust base
+        working-directory: lean
+        run: lake env lean AxiomCheck.lean
+      - name: Reject proof escapes
+        run: |
+          if grep -R -n -E '\b(sorry|admit|native_decide)\b|^[[:space:]]*axiom[[:space:]]' lean --include='*.lean' --exclude-dir=.lake; then
+            echo 'Forbidden proof escape in project source'
+            exit 1
+          fi

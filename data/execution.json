@@ -1,0 +1,130 @@
+{
+  "platform": "macOS",
+  "python": "3.13",
+  "certificate_source_commit": "5a6af5855ca85e23dc0b5e5a341f8eabf5aefba8",
+  "entrypoint": {
+    "argv": [
+      "python",
+      "-B",
+      "scripts/replay.py"
+    ],
+    "exit": 0
+  },
+  "children": [
+    {
+      "cwd": "certificates",
+      "argv": [
+        "cert_barriers.py",
+        "4"
+      ],
+      "exit": 0
+    },
+    {
+      "cwd": "certificates",
+      "argv": [
+        "cert_upper.py",
+        "4"
+      ],
+      "exit": 0
+    },
+    {
+      "cwd": "certificates",
+      "argv": [
+        "cert_lower.py",
+        "4"
+      ],
+      "exit": 0
+    },
+    {
+      "cwd": "certificates",
+      "argv": [
+        "sanity_checks.py",
+        "4"
+      ],
+      "exit": 0
+    },
+    {
+      "cwd": "certificates",
+      "argv": [
+        "verify_flint.py"
+      ],
+      "exit": 0
+    },
+    {
+      "cwd": "degrees5-8",
+      "argv": [
+        "verify_flint.py",
+        "certificates"
+      ],
+      "exit": 0
+    },
+    {
+      "cwd": "degrees5-8",
+      "argv": [
+        "semantic_mutants.py"
+      ],
+      "exit": 0
+    }
+  ],
+  "auxiliary_source_commit": "67746a6f5fe3ea0b457806620c84c067f1aa6e22",
+  "auxiliary": [
+    {
+      "script": "scripts/check_remainder.py",
+      "exit": 0,
+      "claim": "exact symbolic algebra only"
+    },
+    {
+      "script": "degrees5-8/validation/chk_cells.py",
+      "arguments": [
+        "7",
+        "6",
+        "0,2500,5298"
+      ],
+      "exit": 0,
+      "claim": "NUMERICAL, three sampled cells only",
+      "upper_difference_min_eigenvalues": [
+        "3.9883e-7",
+        "4.0345e-7",
+        "1.1956e-5"
+      ],
+      "lower_difference_min_eigenvalues": [
+        "1.8557e-9",
+        "1.4532e-7",
+        "0.00013323"
+      ]
+    }
+  ],
+  "figure": {
+    "source_sha256": "3a8d67b6f796615f72d7a6bd474118737c409112494a379cd0322fcca6f1db22",
+    "script": "figures/plot_summary.py",
+    "platform": "Windows",
+    "python": "3.13",
+    "figsize_inches": [6.3, 3.6],
+    "exit": 0,
+    "preview_viewed": true,
+    "pdf_sha256": "fd853f0457452c00855c11dd3ff94a2acae59d6edb290474fe9115f83aca37e6",
+    "claim": "Generated display of saved exact certificate counts; no new spectral computation."
+  },
+  "imported_helpers": {
+    "certificates/cases.py": [
+      "cert_barriers.py",
+      "cert_upper.py",
+      "cert_lower.py",
+      "sanity_checks.py",
+      "plot_summary.py"
+    ],
+    "certificates/vortex.py": [
+      "cert_barriers.py",
+      "cert_upper.py",
+      "cert_lower.py",
+      "sanity_checks.py"
+    ],
+    "certificates/cert_lib.py": [
+      "cert_barriers.py",
+      "cert_upper.py",
+      "cert_lower.py",
+      "sanity_checks.py"
+    ]
+  },
+  "limits": "Lean sources were not changed or rebuilt. Numerical cell checks are not rigorous enclosures."
+}

@@ -1,0 +1,91 @@
+{
+  "claim_label": "CERTIFIED finite counts; full-plane indices conditional on analytic hypotheses",
+  "source": "scripts/cases.py (release: certificates/cases.py) and degrees5-8/certificates/lower_n*.json; upper matching verified by replay_all.py",
+  "rows": [
+    {
+      "degree": 4,
+      "radial_counts": [
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "conditional_real_index": 12,
+      "conjectured_upper_bound": 12,
+      "deficit": 0
+    },
+    {
+      "degree": 5,
+      "radial_counts": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "conditional_real_index": 20,
+      "conjectured_upper_bound": 20,
+      "deficit": 0
+    },
+    {
+      "degree": 6,
+      "radial_counts": [
+        1,
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        1,
+        1
+      ],
+      "conditional_real_index": 30,
+      "conjectured_upper_bound": 30,
+      "deficit": 0
+    },
+    {
+      "degree": 7,
+      "radial_counts": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "conditional_real_index": 36,
+      "conjectured_upper_bound": 42,
+      "deficit": 6
+    },
+    {
+      "degree": 8,
+      "radial_counts": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "conditional_real_index": 48,
+      "conjectured_upper_bound": 56,
+      "deficit": 8
+    }
+  ]
+}
