@@ -1,8 +1,8 @@
-"""CERTIFIED (exact rational arithmetic): global barriers g_L < f_n < g_U for the degree-n profile.
+"""Check global barriers g_L < f_n < g_U for the degree-n profile with exact rational arithmetic.
 
     g_U(r)^2 = x^n / D_U(x),  g_L(r)^2 = x^n / D_L(x),  x = r^2   (data in cases.py)
 
-Checks (each positivity by exact Bernstein subdivision AND an independent Sturm root count):
+Checks (each positivity by exact Bernstein subdivision and an independent Sturm root count):
  (B0) D_U > 0 and D_L > 0 on [0, oo)  (so g_U, g_L are smooth, g ~ D(0)^{-1/2} r^n at 0, g -> 1).
  (B1) E_n(g_U) < 0 on (0, oo): -b_U > 0, where b = D^2 E_n(g)/g is a polynomial in x.
  (B2) E_n(g_L) > 0 on (0, oo):  b_L > 0.

@@ -1,4 +1,4 @@
-"""Replay pinned finite certificates; analytic hypotheses remain external."""
+"""Check the exact finite certificates for vortex degrees four through eight."""
 import hashlib
 import json
 import os
@@ -15,11 +15,11 @@ def main():
     for name, expected in json.loads((root / 'INPUT-HASHES.json').read_text()).items():
         actual = hashlib.sha256((root / name).read_bytes()).hexdigest()
         if actual != expected:
-            raise SystemExit(f'INPUT HASH MISMATCH: {name}')
-    print('PINNED INPUT HASHES PASS', flush=True)
+            raise SystemExit(f'Input checksum does not match: {name}')
+    print('Input checksums verified', flush=True)
     degree4 = root / 'scripts'
     if not (degree4 / 'cert_barriers.py').is_file():
-        degree4 = root / 'certificates'  # portable release layout
+        degree4 = root / 'certificates'  # The degree-four scripts live alongside their inputs in this layout.
     commands = [(degree4, [name, '4']) for name in
                 ['cert_barriers.py', 'cert_upper.py', 'cert_lower.py', 'sanity_checks.py']]
     commands += [(degree4, ['verify_flint.py']),
@@ -34,7 +34,7 @@ def main():
         (output / 'exit-codes.json').write_text(json.dumps(records, indent=2) + '\n')
         if result.returncode:
             return result.returncode
-    print('EXACT FINITE REPLAY PASS; analytic hypotheses and variational bridge remain external.', flush=True)
+    print('All finite certificate checks passed. The index theorem assumes the analytic hypotheses of the report.', flush=True)
     return 0
 
 

@@ -1,4 +1,4 @@
-name: Replay both certificate sets and degree-four Lean
+name: Verify vortex certificates and degree-four Lean proofs
 on: [push, pull_request, workflow_dispatch]
 jobs:
   certificates:
@@ -22,12 +22,12 @@ jobs:
       - uses: leanprover/lean-action@v1
         with:
           lake-package-directory: lean
-      - name: Check theorem trust base
+      - name: List theorem axioms
         working-directory: lean
         run: lake env lean AxiomCheck.lean
-      - name: Reject proof escapes
+      - name: Check for unsupported proof shortcuts
         run: |
           if grep -R -n -E '\b(sorry|admit|native_decide)\b|^[[:space:]]*axiom[[:space:]]' lean --include='*.lean' --exclude-dir=.lake; then
-            echo 'Forbidden proof escape in project source'
+            echo 'Disallowed proof shortcut in Lean source'
             exit 1
           fi

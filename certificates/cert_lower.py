@@ -1,9 +1,9 @@
-"""CERTIFIED (exact rational arithmetic): ind(Q_m) >= K_m for the degree-n blocks, m = 2..2n-2.
+"""Check ind(Q_m) >= K_m for m = 2..2n-2 with exact rational arithmetic.
 
 Monotonicity: for G >= f_n^2 on [0, X], Q_{m,G} - Q_m = 2 int (G - f_n^2)(a^2 + ab + b^2) r dr >= 0 on
 pairs supported in r^2 <= X (a^2 + ab + b^2 >= 0 pointwise).  So a subspace on which Q_{m,G} is
 negative definite is a negative subspace of Q_m.  We take for G the piecewise polynomial U saved in
-the test-data file (rational coefficients; how it was found plays no role) and check
+the test-data file and check
   (L0) the pieces tile [0, x_end] and U_i(x) D_U(x) - x^n > 0 on each [x_i, x_{i+1}]  (exact Bernstein
        + Sturm), so U > g_U^2 > f_n^2 there (cert_barriers.py gives f_n < g_U).
 Test pairs (saved Ritz vectors, coefficients rationalised): a = r^k A(x), b = r^{k+2} B(x),

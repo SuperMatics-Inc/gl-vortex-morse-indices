@@ -8,7 +8,7 @@ namespace GLVortex
 /-- Channels indexed 0,...,4 represent m=2,...,6. -/
 def K (i : Fin 5) : ℕ := if i.val = 2 then 2 else 1
 
-/-- The genuinely two-dimensional negative-subspace argument in Lemma 5.
+/-- The two-dimensional negative subspace in Lemma 5.
 Negativity of the two diagonal entries alone would not suffice. -/
 theorem negative_definite_two_by_two (a b c : ℝ)
     (ha : a < 0) (hdet : 0 < a*c-b^2)
@@ -74,7 +74,7 @@ theorem upper_conditions : UpperConditions := by
   · exact ⟨inner5_0_pos x ha hb, innerResidual5_0_pos x ha hb⟩
   · exact ⟨inner6_0_pos x ha hb, innerResidual6_0_pos x ha hb⟩
 
-/-- Theorem 1's analytic interface. Every field is an explicit hypothesis.
+/-- Analytic hypotheses for Theorem 1.
 The kernel propositions must be instantiated with the actual PDE kernel
 equalities; no PDE operator or Fourier expansion is constructed in Lean. -/
 structure AnalyticInputs (f : ℝ → ℝ) (boundedKernelSymmetries fullL2Trivial : Prop)
@@ -98,7 +98,7 @@ structure AnalyticInputs (f : ℝ → ℝ) (boundedKernelSymmetries fullL2Trivia
   /-- Two real copies; all remaining channels have zero index. -/
   angular_multiplicity : fullIndex = 2 * ∑ i, index i
 
-/-- Lemma 4, conditional on the explicitly supplied upstream trace reduction. -/
+/-- Lemma 4 assumes the analytic trace reduction. -/
 theorem lemma_4_upper {f : ℝ → ℝ} {B L : Prop} {ind nul nu : Fin 5 → ℕ} {full : ℕ}
     (h : AnalyticInputs f B L ind nul nu full) : ∀ i, nu i ≤ K i :=
   h.trace_upper h.profile all_polynomial_conditions upper_conditions

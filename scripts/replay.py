@@ -1,4 +1,4 @@
-"""Portable entrypoint for both finite certificate sets."""
+"""Run the degree-four and higher-degree certificate checks."""
 from pathlib import Path
 import runpy
 

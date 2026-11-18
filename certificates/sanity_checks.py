@@ -1,13 +1,13 @@
-"""Non-vacuity checks for the certificates (exit 0 iff every expectation holds).
+"""Check representative certificate identities and reject invalid inputs.
 
  (S1) the exact tail numerator N_m / (x^2 (x - x_lo)^2 D_L E_m) agrees with an independent floating-point
       evaluation of V_m - h_tt/h (V_m from its definition, h_tt by finite differences in t) at sample points;
- (S2) a tail parameter set that is numerically bad (m = 3, x_lo = 14.6, s = 2.8, beta = 34) is REJECTED;
- (S3) an upper barrier with too large a constant (D_U(0) = 70000) is REJECTED (b_U changes sign);
+ (S2) the invalid tail parameters m = 3, x_lo = 14.6, s = 2.8, beta = 34 are rejected;
+ (S3) the upper barrier with D_U(0) = 70000 is rejected because b_U changes sign;
  (S4) the exact Rayleigh quotients of the certified lower test vectors agree with the floating-point Ritz
       values recorded by design_lower.py (relative difference < 1e-6);
- (S5) inner supersolutions are not vacuous: extending the m = 2 component past the Bessel zero j_{2,1}^2
-      is REJECTED, and the second m = 4 component without the dilation (lam = 1) is REJECTED;
+ (S5) the verifier rejects the m = 2 component extended past the Bessel zero j_{2,1}^2
+      and the second m = 4 component with the dilation removed (lam = 1);
  (S6) the positivity test rejects polynomials with a double root or an interior negative dip.
 Usage: python sanity_checks.py [n]   (default n = 4).
 """

@@ -1,4 +1,4 @@
-"""CERTIFIED (exact rational arithmetic): nu(Q_m) <= K_m for the degree-n blocks, m = 2..2n-2.
+"""Check nu(Q_m) <= K_m for m = 2..2n-2 with exact rational arithmetic.
 
 Route (del Pino-Liu-Musso-Wei-Yang, arXiv:2608.04976v1, Lemma (slow), Prop. (p:trace), general n):
   Q_m >= Q_{m,g_L} (g_L < f_n, cert_barriers.py) and Q_{m,g_L}[c,d] >= ell_m[d] = int (d_t^2 + V_m d^2) dt,

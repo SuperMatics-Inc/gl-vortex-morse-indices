@@ -1,4 +1,4 @@
-"""Independent degree-four replay: FLINT rationals and a separate Sturm implementation.
+"""Check the degree-four certificates with FLINT rationals and a separate Sturm implementation.
 No imports from the original certificates, SymPy, NumPy or SciPy. All polynomial
 signs include both finite endpoints; infinity is handled by leading coefficients.
 JSON binary64 vectors only specify exact rational inputs, as in the manuscript.

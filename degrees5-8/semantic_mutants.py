@@ -1,4 +1,4 @@
-"""Semantic adversaries: consistent arithmetic with invalid mathematical contracts."""
+"""Check that the verifier rejects altered inputs even when their arithmetic is internally consistent."""
 import copy,gzip,json,os
 from pathlib import Path
 import verify_flint as v

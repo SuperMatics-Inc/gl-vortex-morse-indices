@@ -2,7 +2,7 @@
 
 Lean 4.35.0; Mathlib v4.35.0. Build with `lake build`.
 
-## PROVED in Lean
+## Results checked in Lean
 
 - `heval_pos`: positivity of homogeneous power/Bernstein evaluation with strictly positive coefficients on the nonnegative quadrant excluding the origin.
 - `Certificates.lean`: 40 real-polynomial positivity theorems. These cover both barrier denominators, both residual signs, all five A and E denominators, all six inner polynomials and their normalized residuals, all five tail polynomials, and all nine lower-majorant pieces. Each proof checks a polynomial identity with `ring` and exact rational coefficient inequalities with `norm_num`; closed finite intervals and the entire half-line are covered, not samples.
@@ -12,19 +12,19 @@ Lean 4.35.0; Mathlib v4.35.0. Build with `lake build`.
 - `Algebra.lean`: the nonnegative monotonicity factor, exact scalar square completion, and its pointwise lower-bound consequence.
 - `channel_sandwich`: upper nonpositive dimension and lower negative dimension plus the explicit index/nullity identity give exact index and zero nullity.
 - `theorem_1`: conditional five-channel index tuple (1,1,2,1,1), vanishing intermediate nullities, conditional full kernel conclusions, and the real index 12.
-- Numbered interfaces `lemma_2_profile_enclosure`, `lemma_4_upper`, `lemma_5_lower` mirror manuscript Lemmas 2, 4 and 5. Proposition 3's analytic trace theorem is an input, not a Lean theorem.
+- The statements `lemma_2_profile_enclosure`, `lemma_4_upper`, `lemma_5_lower` mirror manuscript Lemmas 2, 4 and 5. Proposition 3's analytic trace theorem is an input, not a Lean theorem.
 
-## Explicit hypotheses, NOT proved by Lean
+## Analytic hypotheses
 
-`ProfileFacts` states the classical profile ODE, differentiability, positivity, origin expansion with positive leading coefficient, and the infinity expansion with a rigorous O(r^-8) remainder. No profile existence, uniqueness, expansion remainder or shooting accuracy is asserted by Lean.
+`ProfileFacts` assumes the classical profile ODE, differentiability, positivity and the origin expansion with positive leading coefficient. It also assumes the expansion at infinity with a rigorous O(r^-8) remainder. Existence, uniqueness and shooting accuracy lie outside the formalization.
 
-`AnalyticInputs` exposes the upstream index/nullity identity; ratio/profile comparison, form monotonicity, scalar reduction and the trace-point theorem; identification of polynomial residuals with the differential expressions; interval tiling in logarithmic radius; form-domain admissibility; identification of the extracted exact Gram entries with the integrals of the specified test functions; the variational principle; bounded-to-L2 transfer; phase/translation/high-channel classification; Fourier reconstruction; and the two real angular copies. The full bounded-kernel and L2-kernel propositions are abstract parameters to be instantiated by the PDE statements. **This is not a formal construction of the PDE operator or an unconditional Lean proof of vortex nondegeneracy.**
+`AnalyticInputs` assumes the index/nullity identity, profile ratio comparison, form monotonicity, scalar reduction and the trace-point theorem. It also assumes the identification of polynomial residuals with differential expressions, the logarithmic interval tiling and form-domain admissibility. The Gram integral identities and variational principle are inputs. So are the bounded-to-L2 transfer, the classification of phase, translation and high-channel modes, Fourier reconstruction and the two real angular copies. The bounded-kernel and L2-kernel statements are parameters for the corresponding PDE results.
 
-The saved polynomial and Gram constants are proposals checked by Lean. Their extraction from analytic differential formulas and trial integrals remains part of the external certificate verification. Agreement of generated data and a kernel-checked sign does not formalise that extraction.
+Lean checks signs of the supplied polynomial and Gram constants. Their extraction from differential formulas and trial integrals is part of the external certificate verification.
 
 ## Reproduction and axioms
 
-The checked-in `.lean` files are sufficient; no Python generator is needed. Both Lean and Mathlib are pinned to v4.35.0. From this directory:
+The checked-in `.lean` files suffice; no Python generator is needed. Both Lean and Mathlib use version 4.35.0. From this directory:
 
 ```
 lake update
@@ -35,10 +35,9 @@ lake env lean AxiomCheck.lean
 
 `GLVortex.lean` prints the axioms of every main theorem and the aggregate polynomial certificate. The proofs use `norm_num`, `ring`, linear arithmetic and kernel proof terms. They do not use `native_decide`, custom axioms or proof holes. Standard Lean/Mathlib axioms may appear in the printed dependency lists.
 
-The project uses a portable git dependency pinned to Mathlib v4.35.0. Fetch prebuilt Mathlib oleans with `lake exe cache get` rather than rebuilding Mathlib from source.
-The portable Git-based dependency configuration and CI have not been tested in a clean clone. The checked results used prebuilt dependencies; these commands are reproduction instructions, not evidence of an additional portable build.
+Fetch Mathlib’s prebuilt `.olean` files with `lake exe cache get`. The checks used prebuilt dependencies.
 
-## Higher-degree boundary
+## Degrees five through eight
 
-This is the checked degree-four project only. `theorem_1` is conditional bookkeeping, not an unconditional PDE theorem. In the separate `../degrees5-8/lean/` project, 15 of 97 files (96 generated modules plus the root import file) are checked; the remainder are not machine-checked. Its root imports unchecked modules and does not build as shipped. `Tail5M2` was accepted only with `-M 10000`, not the earlier `-M 5000` limit; the shipped higher-degree lakefile now sets `-M 10000`. The root README gives the exact invocation. No complete higher-degree certificate-chain theorem is claimed. The root README lists the checked modules.
+The separate `../degrees5-8/lean/` project has checks for 15 of its 97 files (96 generated modules and the root import file). The root imports unchecked modules and does not build as supplied. `Tail5M2` passed with `-M 10000` after exceeding the earlier `-M 5000` limit. The higher-degree lakefile uses `-M 10000`. The main README lists the checked modules and gives the exact invocation.
 

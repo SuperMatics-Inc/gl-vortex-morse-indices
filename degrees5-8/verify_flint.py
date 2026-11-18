@@ -1,5 +1,5 @@
-"""Independent verifier: FLINT polynomials and rationals only, no designer imports.
-Rejects malformed profile identities, upper inertia witnesses, lower trial/Gram witnesses.
+"""Check profile identities, upper inertia and lower trial Gram matrices with FLINT.
+The code uses only FLINT polynomial and rational arithmetic and does not import the construction programs.
 """
 import json,sys,copy,time,gzip
 from pathlib import Path
