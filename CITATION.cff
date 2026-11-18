@@ -8,6 +8,7 @@ authors:
     affiliation: SuperMatics Inc.
     orcid: 'https://orcid.org/0000-0001-5839-5197'
 version: 1.0.0
+date-released: 2026-11-18
 license: Apache-2.0
 repository-code: 'https://github.com/SuperMatics-Inc/gl-vortex-morse-indices'
 url: 'https://github.com/SuperMatics-Inc/gl-vortex-morse-indices'
@@ -18,3 +19,17 @@ keywords:
   - computer-assisted proof
   - exact rational arithmetic
   - Lean
+preferred-citation:
+  type: report
+  title: 'Computer-assisted Morse indices of nonmagnetic Ginzburg-Landau vortices of degrees four through eight'
+  authors:
+    - family-names: Rens
+      given-names: Davis
+      affiliation: SuperMatics Inc.
+      orcid: 'https://orcid.org/0000-0001-5839-5197'
+  year: 2026
+  doi: '10.5281/zenodo.24326103'
+  institution:
+    name: SuperMatics Inc.
+  number: SM-TR-2026-01
+  notes: 'SuperMatics Technical Report SM-TR-2026-01. Not peer reviewed.'

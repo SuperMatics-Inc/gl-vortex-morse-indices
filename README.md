@@ -4,7 +4,7 @@ Supplement for *Computer-assisted Morse indices of nonmagnetic Ginzburg–Landau
 
 Accompanying report: **SM-TR-2026-01**, technical report, not peer reviewed. Report DOI: [10.5281/zenodo.24326103](https://doi.org/10.5281/zenodo.24326103).
 
-Intended repository: https://github.com/SuperMatics-Inc/gl-vortex-morse-indices
+Repository: https://github.com/SuperMatics-Inc/gl-vortex-morse-indices
 
 Archival DOI: [10.5281/zenodo.24326105](https://doi.org/10.5281/zenodo.24326105).
 
